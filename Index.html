@@ -110,19 +110,41 @@
         document.addEventListener('DOMContentLoaded', function() {
             
             const productsDB = [
-                { name: "Cajun Sepeti", page: "atistirmalik.html", price: "240 ₺", img: "img/atistirma.jpg" },
-                { name: "Soğan Halkası", page: "atistirmalik.html", price: "120 ₺", img: "img/atistirma.jpg" },
-                { name: "Mix Atıştırmalık", page: "atistirmalik.html", price: "300 ₺", img: "img/atistirma.jpg" },
-                { name: "Cafe Latte", page: "sicaklar.html", price: "90 ₺", img: "img/sicak.jpg" },
-                { name: "Cappuccino", page: "sicaklar.html", price: "90 ₺", img: "img/sicak.jpg" },
-                { name: "Americano", page: "sicaklar.html", price: "80 ₺", img: "img/sicak.jpg" },
-                { name: "Türk Kahvesi", page: "sicaklar.html", price: "70 ₺", img: "img/sicak.jpg" },
-                { name: "Çay", page: "sicaklar.html", price: "30 ₺", img: "img/sicak.jpg" },
-                { name: "Iced Latte", page: "soguklar.html", price: "100 ₺", img: "img/soguk.webp" },
-                { name: "Cold Brew", page: "soguklar.html", price: "110 ₺", img: "img/soguk.webp" },
-                { name: "San Sebastian", page: "tatlilar.html", price: "180 ₺", img: "img/tatli.jpg" },
-                { name: "Magnolia", page: "tatlilar.html", price: "140 ₺", img: "img/tatli.jpg" },
-                { name: "Çilekli Frozen", page: "frozen.html", price: "130 ₺", img: "img/frozen.jpg" }
+/* --- Sıcak İçecekler --- */
+{ name: "Çay", page: "sicaklar.html", price: "30 ₺", img: "cay.webp" },
+{ name: "Türk Kahvesi", page: "sicaklar.html", price: "80 ₺", img: "turkkahve.webp" },
+{ name: "D.Türk Kahvesi", page: "sicaklar.html", price: "120 ₺", img: "turkkahve.webp" },
+{ name: "Espresso", page: "sicaklar.html", price: "80 ₺", img: "espresso.webp" },
+{ name: "Americano", page: "sicaklar.html", price: "100 ₺", img: "americano.webp" },
+{ name: "Latte", page: "sicaklar.html", price: "120 ₺", img: "latte.jpg" },
+{ name: "Bitki Çayları", page: "sicaklar.html", price: "100 ₺", img: "bitki.jpg" },
+{ name: "Sahlep", page: "sicaklar.html", price: "150 ₺", img: "sahlep.jpg" },
+{ name: "Sıcak Çikolata", page: "sicaklar.html", price: "150 ₺", img: "sıcakcikolata.jpg" },
+
+/* --- Sandviçler (Atıştırmalık Sayfasına Eklendi) --- */
+{ name: "Rozbifli Bagel", page: "atistirmalik.html", price: "150 ₺", img: "rozbifli.jpeg" },
+{ name: "3 Peynirli Bagel", page: "atistirmalik.html", price: "150 ₺", img: "peynirli.jpg" },
+{ name: "Jambonlu Bagel", page: "atistirmalik.html", price: "150 ₺", img: "jambon.webp" },
+
+/* --- Soğuk İçecekler --- */
+{ name: "Ice Americano", page: "soguklar.html", price: "100 ₺", img: "iceamericano.jpg" },
+{ name: "Ice Latte", page: "soguklar.html", price: "120 ₺", img: "icelatte.png" },
+{ name: "Ice Mocha", page: "soguklar.html", price: "120 ₺", img: "icemocha.png" },
+{ name: "Limonata", page: "soguklar.html", price: "100 ₺", img: "limonata.jpg" },
+{ name: "Cool Lime", page: "soguklar.html", price: "120 ₺", img: "coollime.jpg" },
+{ name: "Borovnica", page: "soguklar.html", price: "100 ₺", img: "borovnica.jpg" },
+{ name: "Frozen Çeşitleri", page: "soguklar.html", price: "150 ₺", img: "frozen.jpg" },
+
+/* --- Meşrubatlar --- */
+{ name: "Su", page: "soguklar.html", price: "25 ₺", img: "erikli.png" },
+{ name: "Soda", page: "soguklar.html", price: "40 ₺", img: "soda.webp" },
+{ name: "Limonlu Soda", page: "soguklar.html", price: "50 ₺", img: "limonlusoda.jpeg" },
+{ name: "Churchill", page: "soguklar.html", price: "70 ₺", img: "churchill.jpg" },
+{ name: "Cola", page: "soguklar.html", price: "80 ₺", img: "mesrubat.jpg" },
+{ name: "Ice Tea", page: "soguklar.html", price: "80 ₺", img: "mesrubat.jpg" },
+{ name: "Sprite", page: "soguklar.html", price: "80 ₺", img: "mesrubat.jpg" },
+{ name: "Meyve Suyu", page: "soguklar.html", price: "40 ₺", img: "meyvesuyu.jpg" },
+{ name: "Juss", page: "soguklar.html", price: "80 ₺", img: "jus.jpeg" }
             ];
 
             const btnAc = document.getElementById('btn-arama-ac');
@@ -233,3 +255,4 @@
 </body>
 
 </html>
+
