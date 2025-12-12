@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LINA'S COO - Dijital Menü</title>
+    
+    <meta name="theme-color" content="#58381e">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-container">
+                <img src="img/logo.png" alt="Logo" class="logo-img">
+                </div>
+                
+                <button id="options-button" class="menu-button">☰</button>
+                
+                <div id="language-button" class="flag-icon-container">
+                    <span class="flag-icon">🇹🇷</span>
+                    <div id="language-dropdown" class="language-dropdown hidden">
+                        <a href="#" data-lang="tr">Türkçe 🇹🇷</a>
+                        <a href="#" data-lang="en">English 🇬🇧</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="scroll-content">
+            
+            <div class="hero-slider-container">
+                
+                <img src="img/img3.jpeg" class="hero-slide active" alt="Slayt 1">
+                
+                <img src="img/img2.jpeg" class="hero-slide" alt="Slayt 2">
+                
+                <img src="img/img1.jpeg" class="hero-slide" alt="Slayt 3">
+
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="welcome-text">
+                Lezzetlerimizi Keşfedin
+            </div>
+
+            <main class="category-grid">
+                <a href="atistirmalik.html" class="category-item">
+                    <img src="img/bagel.png" alt="Atıştırmalıklar">
+                    <span class="category-label">Atıştırmalık</span>
+                </a>
+                <a href="sicaklar.html" class="category-item">
+                    <img src="img/sicak.jpg" alt="Sıcak İçecekler">
+                    <span class="category-label">Sıcak İçecekler</span>
+                </a>
+                <a href="soguklar.html" class="category-item">
+                    <img src="img/iced.webp" alt="Soğuk İçecekler">
+                    <span class="category-label">Soğuk İçecekler</span>
+                </a>
+                <a href="mesrubatlar.html" class="category-item">
+                    <img src="img/mesrubat.jpg" alt="Meşrubatlar">
+                    <span class="category-label">Meşrubatlar</span>
+                </a>
+                <a href="meyvesuyu.html" class="category-item">
+                    <img src="img/sporcu.png" alt="Meyvesuyu">
+                    <span class="category-label">Sporcu Ürünleri</span>
+                </a>
+            </main>
+        </div>
+        
+<footer class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Anasayfa</span>
+            </a>
+
+            <div id="btn-arama-ac" class="nav-item" style="cursor: pointer;">
+                <i class="fas fa-search"></i>
+                <span>Ürün Ara</span>
+            </div>
+
+            <a href="https://www.instagram.com/linas.coo/" target="_blank" class="nav-item">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </footer>
+
+    </div>
+
+    <div id="pencere-arama" class="search-overlay hidden">
+            <div class="search-header">
+                <input type="text" id="input-arama" placeholder="Ne aramıştınız?">
+                <button id="btn-arama-kapat">✕</button>
+            </div>
+            <div id="sonuc-kutusu">
+                <div class="no-result">Aramak için yazmaya başlayın...</div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const productsDB = [
+                { name: "Cajun Sepeti", page: "atistirmalik.html", price: "240 ₺", img: "img/atistirma.jpg" },
+                { name: "Soğan Halkası", page: "atistirmalik.html", price: "120 ₺", img: "img/atistirma.jpg" },
+                { name: "Mix Atıştırmalık", page: "atistirmalik.html", price: "300 ₺", img: "img/atistirma.jpg" },
+                { name: "Cafe Latte", page: "sicaklar.html", price: "90 ₺", img: "img/sicak.jpg" },
+                { name: "Cappuccino", page: "sicaklar.html", price: "90 ₺", img: "img/sicak.jpg" },
+                { name: "Americano", page: "sicaklar.html", price: "80 ₺", img: "img/sicak.jpg" },
+                { name: "Türk Kahvesi", page: "sicaklar.html", price: "70 ₺", img: "img/sicak.jpg" },
+                { name: "Çay", page: "sicaklar.html", price: "30 ₺", img: "img/sicak.jpg" },
+                { name: "Iced Latte", page: "soguklar.html", price: "100 ₺", img: "img/soguk.webp" },
+                { name: "Cold Brew", page: "soguklar.html", price: "110 ₺", img: "img/soguk.webp" },
+                { name: "San Sebastian", page: "tatlilar.html", price: "180 ₺", img: "img/tatli.jpg" },
+                { name: "Magnolia", page: "tatlilar.html", price: "140 ₺", img: "img/tatli.jpg" },
+                { name: "Çilekli Frozen", page: "frozen.html", price: "130 ₺", img: "img/frozen.jpg" }
+            ];
+
+            const btnAc = document.getElementById('btn-arama-ac');
+            const pencere = document.getElementById('pencere-arama');
+            const btnKapat = document.getElementById('btn-arama-kapat');
+            const input = document.getElementById('input-arama');
+            const sonucKutusu = document.getElementById('sonuc-kutusu');
+
+            if(btnAc) {
+                btnAc.addEventListener('click', function() {
+                    pencere.classList.remove('hidden');
+                    input.focus();
+                    
+                    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                    btnAc.classList.add('active');
+                });
+            }
+
+            if(btnKapat) {
+                btnKapat.addEventListener('click', function() {
+                    pencere.classList.add('hidden');
+                    input.value = '';
+                    sonucKutusu.innerHTML = '<div class="no-result">Aramak için yazmaya başlayın...</div>';
+                    
+                    btnAc.classList.remove('active');
+                    
+                });
+            }
+
+            if(input) {
+                input.addEventListener('input', function(e) {
+                    const terim = e.target.value.toLowerCase();
+                    sonucKutusu.innerHTML = ''; 
+
+                    if(terim.length < 2) {
+                        sonucKutusu.innerHTML = '<div class="no-result">En az 2 harf yazın...</div>';
+                        return;
+                    }
+
+                    const bulunanlar = productsDB.filter(urun => 
+                        urun.name.toLowerCase().includes(terim)
+                    );
+
+                    if(bulunanlar.length === 0) {
+                        sonucKutusu.innerHTML = '<div class="no-result">Ürün bulunamadı :(</div>';
+                    } else {
+                        bulunanlar.forEach(urun => {
+                            const link = document.createElement('a');
+                            link.href = urun.page;
+                            link.className = 'search-item';
+                            link.innerHTML = `
+                                <img src="${urun.img}" alt="${urun.name}">
+                                <div class="search-info">
+                                    <h4>${urun.name}</h4>
+                                    <span>Git ></span>
+                                </div>
+                                <div class="search-price">${urun.price}</div>
+                            `;
+                            sonucKutusu.appendChild(link);
+                        });
+                    }
+                });
+            }
+
+            const optionsButton = document.getElementById('options-button');
+            const languageButton = document.getElementById('language-button');
+            const languageDropdown = document.getElementById('language-dropdown');
+
+            if(optionsButton) optionsButton.addEventListener('click', () => alert('Ayarlar menüsü yakında!'));
+            
+            if(languageButton) {
+                languageButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    languageDropdown.classList.toggle('hidden');
+                });
+            }
+
+            document.addEventListener('click', (e) => {
+                if (languageButton && !languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.add('hidden');
+                }
+            });
+
+            const currentPage = window.location.pathname.split("/").pop();
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if(item.getAttribute('href') === currentPage) item.classList.add('active');
+                else if((currentPage === '' || currentPage === 'index.html') && item.getAttribute('href') === 'index.html') item.classList.add('active');
+                else item.classList.remove('active');
+            });
+
+        }); 
+
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        if (slides.length > 0) {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                
+            }, 3500); 
+        }
+    </script>
+</body>
+</html>
